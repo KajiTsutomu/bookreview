@@ -1,0 +1,128 @@
+body{
+    color: #333333;
+    background-color:#D8C8B9;
+}
+
+.header:hover{
+    text-decoration: none;
+}
+
+.jumbotron{
+    margin-bottom: 0;
+    background: url("../image/top.jpg") center no-repeat;
+    background-size: cover;
+}
+
+.jumbotron h1{
+    color: white;
+}
+
+.navbar {
+    background-color: #ffffff;
+}
+
+.navbar a{
+    color: #554200;
+}
+
+.navbar a:hover{
+    text-decoration: underline;
+}
+
+.category{
+    color: #333;
+}
+
+.category-link {
+    color: #333;
+}
+
+.search{
+    border-color: #6C757D;
+}
+
+.fa-search{
+    margin-right: 8px;
+}
+
+.book-img {
+    height: 200px;
+    width: auto;
+}
+
+.author {
+    font-size: 12px;
+}
+
+.indiv {
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
+.star-rating {
+    position: relative;
+    font-size: 30px;
+    word-wrap: normal!important;
+    margin-bottom: 1rem;
+}
+
+.star-rating-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: #EE6C4D;
+}
+
+.star-rating-back {
+    color: #ccc;
+}
+
+.adButton {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.adButton a {
+    display: inline-block;
+    padding: 0.5em 0;
+    margin-right: 1em;
+    width: 14em;
+    text-align: center;
+    text-decoration: none;
+}
+
+.amazon {
+    color: #333;
+    border: 2px solid #333;
+}
+
+.amazon:hover{
+    color: #333;
+    opacity: 0.7;
+}
+
+.rakuten {
+    color: #bf0000;
+    border: 2px solid #bf0000;
+}
+
+.rakuten:hover{
+    color: #bf0000;
+    opacity: 0.7;
+}
+
+.pagination>li>a{
+    color: #554200;
+}
+
+.page-item.active .page-link{
+    background-color: #554200;
+    border-color: #ffffff;
+    color:#ffffff;
+}
+
+.page-link:hover{
+    color: #272006;
+}

@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+{% for book in book_data %}
+    <div class="card mb-4 postion-relative">
+        <div class="card-body">
+        <p class="date archive_date">{{ book.created_date }}</p>
+        <h2 class="book_title">{{ book.title }}</h2>
+        <p class="category">カテゴリ：{{ book.category }}</p>
+            <div class="row">
+                <div class="col-lg-3  d-flex align-items-center">
+                    <img src="{{ book.image.url }}" alt="{{ book.title }}" class="book-img">
+                </div>
+                <div class="col-lg-9">
+                   <p class="author">著者：{{ book.author }} 出版：{{ book.publish }} 発売日：{{ book.publish_date }}</p>
+                    <p class="outline">{{ book.outline | truncatechars:100 | linebreaksbr }}</p>
+                </div>
+            </div>
+        </div>
+        <a href="{% url 'detail' book.id %}" class="stretched-link"></a>
+    </div>
+{% endfor %}
+
+{% include 'app/page.html' %}
+
+{% endblock %}

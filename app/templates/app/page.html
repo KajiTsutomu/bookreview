@@ -1,0 +1,36 @@
+<div class="pagination justify-content-center">
+    <ul class="pagination">
+        <!-- 前へ の部分 -->
+        {% if book_data.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1">&laquo;
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ book_data.previous_page_number }}">前へ
+                </a>
+            </li>
+        {% endif %}
+    
+        <!-- 数字の部分 -->
+        {% for num in book_data.paginator.page_range %}
+            {% if book_data.number == num %}
+                <li class="page-item active"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+            {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+            {% endif %}
+        {% endfor %}
+    
+        <!-- 次へ の部分 -->
+        {% if book_data.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ book_data.next_page_number }}">次へ
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ book_data.paginator.num_pages }}">&raquo;
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</div>

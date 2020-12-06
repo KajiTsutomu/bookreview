@@ -1,0 +1,53 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<div class="card mb-4 postion-relative">
+    <div class="card-body">
+    <p class="date archive_date">{{ book_data.created_date }}</p>
+    <h2 class="book_title">{{ book_data.title }}</h2>
+    <p class="category">カテゴリ：<a href="{% url 'category' book_data.category.name %}" class="category-link">{{ book_data.category }}</a></p>
+        <div class="row">
+            <div class="col-lg-3  d-flex align-items-center">
+                <img src="{{ book_data.image.url }}" alt="{{ book_data.title }}" class="book-img">
+            </div>
+            <div class="col-lg-9">
+               <p class="author">著者：{{ book_data.author }} 出版：{{ book_data.publish }} 発売日：{{ book_data.publish_date }}</p>
+               <p class="outline">{{ book_data.outline | linebreaksbr }}</p>
+            </div>
+        </div>
+
+        <div class="impression my-4">
+            <h3>感想</h3>
+            <p></p>
+            <p>{{ book_data.impression | linebreaksbr }}</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-3  d-flex align-items-center">
+                <img src="{{ book_data.image.url }}" alt="{{ book_data.title }}" class="book-img">
+            </div>
+            <div class="col-lg-9">
+            　　<h4>{{ book_data.title }}</h4>
+               <p class="author">著者：{{ book_data.author }} 出版：{{ book_data.publish }} 発売日：{{ book_data.publish_date }}</p>
+               <p class="indiv">個人評価</p>
+               <div class="star-rating d-inline-flex">
+                   <div class="star-rating-front" style="width: {{ book_data.evaluation }}%">★★★★★</div>
+                   <div class="star-rating-back">★★★★★</div>
+               </div>
+
+               <div class="adButton">
+                   {% if book_data.amazon %}
+                    <a href="{{ book_data.amazon}}" target="_blank" class="amazon">Amazonで見る</a>
+                    {% endif %}
+                    
+                   {% if book_data.rakuten %}
+                    <a href="{{ book_data.rakuten}}" target="_blank" class="rakuten">楽天ブックスで見る</a>
+                    {% endif %}
+               </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
