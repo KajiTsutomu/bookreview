@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.views.generic import View
-from .models import Book, Home, Category, Profile
+from .models import Book, Home, Category, Profile, Tag
 from django.db.models import Q
 
 # Create your views here.
@@ -40,6 +40,19 @@ class CategoryView(View):
 
         return render(request, 'app/index.html', {
             'book_data' : book_data
+        })
+
+class TagView(View):
+    def get(self, request, *args, **kwargs):
+        tag_data = Tag.objects.get(name=self.kwargs['tag'])
+        book_data = Book.objects.order_by('-id').filter(tag=tag_data)
+
+        paginator = Paginator(book_data, 10)
+        page = request.GET.get('page')
+        book_data = paginator.get_page(page)
+
+        return render(request, 'app/index.html', {
+            'book_data':book_data
         })
 
 class SearchView(View):

@@ -6,6 +6,15 @@
     <p class="date archive_date">{{ book_data.created_date }}</p>
     <h2 class="book_title">{{ book_data.title }}</h2>
     <p class="category">カテゴリ：<a href="{% url 'category' book_data.category.name %}" class="category-link">{{ book_data.category }}</a></p>
+    <p class="tag-name">タグ：
+        {% for tag in book_data.tag.all %}
+        <a href="{% url 'tag' tag %}" class="tag">
+            <button class="tag-btn">
+                {{ tag.name }}
+              </button>
+        </a>
+        {% endfor %}
+    </p>
         <div class="row">
             <div class="col-lg-3  d-flex align-items-center">
                 <img src="{{ book_data.image.url }}" alt="{{ book_data.title }}" class="book-img">

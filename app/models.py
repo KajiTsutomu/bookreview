@@ -8,9 +8,16 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+class Tag(models.Model):
+    name = models.CharField('タグ', max_length=50)
+
+    def __str__(self):
+        return self.name
+
 class Book(models.Model):
     title = models.CharField('タイトル', max_length = 100)
     category = models.ForeignKey(Category, verbose_name = 'カテゴリ', on_delete=models.PROTECT)
+    tag = models.ManyToManyField(Tag, verbose_name='タグ')
     author = models.CharField('著者', max_length = 20)
     publish = models.CharField('出版社', max_length = 20)
     publish_date = models.DateField('出版日')

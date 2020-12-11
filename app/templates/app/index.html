@@ -8,6 +8,15 @@
         <p class="date archive_date">{{ book.created_date }}</p>
         <h2 class="book_title">{{ book.title }}</h2>
         <p class="category">カテゴリ：{{ book.category }}</p>
+        <p class="tag-name">タグ：
+            {% for tag in book.tag.all %}
+            <a href="{% url 'tag' tag %}" class="tag">
+                <button class="tag-btn">
+                    {{ tag.name }}
+                  </button>
+            </a>
+            {% endfor %}
+        </p>
             <div class="row">
                 <div class="col-lg-3  d-flex align-items-center">
                     <img src="{{ book.image.url }}" alt="{{ book.title }}" class="book-img">
@@ -21,7 +30,5 @@
         <a href="{% url 'detail' book.id %}" class="stretched-link"></a>
     </div>
 {% endfor %}
-
-{% include 'app/page.html' %}
 
 {% endblock %}

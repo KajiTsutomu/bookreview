@@ -1,6 +1,15 @@
+html{
+    height: 100%;
+}
+
 body{
     color: #333333;
     background-color:#D8C8B9;
+    height: 100%;
+}
+
+#home{
+    min-height: 100%;
 }
 
 .header:hover{
@@ -45,6 +54,14 @@ body{
     margin-right: 8px;
 }
 
+.navbar-toggler{
+    background-color: #443707;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
 .book-img {
     height: 200px;
     width: auto;
@@ -52,6 +69,36 @@ body{
 
 .author {
     font-size: 12px;
+}
+
+.side-bar{
+    background-color: #ffffff;
+}
+
+aside{
+    padding-top: 12px;
+}
+
+.tag{
+    font-size: 0.8rem;
+    color: #ffffff;
+}
+
+.tag:hover{
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+.tag-btn {
+    background-color: #443707;
+    padding: 4px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+.category{
+    margin-bottom: 0;
 }
 
 .indiv {
@@ -125,4 +172,8 @@ body{
 
 .page-link:hover{
     color: #272006;
+}
+
+footer{
+    margin-top: auto;
 }
